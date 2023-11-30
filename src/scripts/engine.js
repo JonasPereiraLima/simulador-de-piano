@@ -11,11 +11,14 @@ pianoKeys.forEach((key) => {
   mapedKeys.push(key.dataset.key);
 });
 
-let playTune = (key) => {
+function playAudio(key) {
   audio.volume = volume.value / 100;
   audio.src = `src/tunes/${key}.wav`;
-  console.log(audio.src);
   audio.play();
+}
+
+let playTune = (key) => {
+  playAudio(key);
 
   const clickedKey = document.querySelector(`[data-key="${key}"]`);
   clickedKey.classList.add("active");
